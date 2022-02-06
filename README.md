@@ -52,3 +52,13 @@ Resources used:
 
 Se adjunta Coleccion de Postman para probar los endpoins de la API:
     - Swapi-API.consumer.json
+
+
+# Authorization
+
+Para consumir la API se tiene que agregar un header Authorization
+
+```bash
+curl -X GET -H "Authorization: <Token>" \
+    https://<endpoint>/planet/1
+```
