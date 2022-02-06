@@ -1,0 +1,6 @@
+*.csv
+*/db/*.json
+.env
+node_modules
+*-lock.json
+.serverless/**

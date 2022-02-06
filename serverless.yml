@@ -1,0 +1,104 @@
+
+service: DEVOPS-Swapi-API
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  lambdaHashingVersion: 20201221
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-1'}
+  environment:
+    STAGE_ENV: self:provider.stage
+    DYNAMODB_TABLE_PEOPLE: DY-Swapi-People-${self:provider.stage}
+    DYNAMODB_TABLE_PLANET: DY-Swapi-Planet-${self:provider.stage}
+    SWAPI_ENDPOINT: swapi.py4e.com
+functions:
+  people-create:
+    name: Lambda-Swapi-API-dev-people-create
+    handler: src/modules/people/create.handler
+    timeout: 10
+    memorySize: 128
+    events:
+      - http:
+          path: /people
+          method: POST
+          cors: true
+  people-list:
+    name: Lambda-Swapi-API-dev-people-list
+    handler: src/modules/people/list.handler
+    timeout: 10
+    memorySize: 128
+    events:
+      - http:
+          path: /people
+          method: GET
+          cors: true
+  people-detail:
+    name: Lambda-Swapi-API-dev-people-detail
+    handler: src/modules/people/detail.handler
+    timeout: 10
+    memorySize: 128
+    events:
+      - http:
+          path: /people/{id}
+          method: GET
+          cors: true
+  planet-create:
+    name: Lambda-Swapi-API-dev-planet-create
+    handler: src/modules/planet/create.handler
+    timeout: 10
+    memorySize: 128
+    events:
+      - http:
+          path: /planet
+          method: POST
+          cors: true
+  planet-list:
+    name: Lambda-Swapi-API-dev-planet-list
+    handler: src/modules/planet/list.handler
+    timeout: 10
+    memorySize: 128
+    events:
+      - http:
+          path: /planet
+          method: GET
+          cors: true
+  planet-detail:
+    name: Lambda-Swapi-API-dev-planet-detail
+    handler: src/modules/planet/detail.handler
+    timeout: 10
+    memorySize: 128
+    events:
+      - http:
+          path: /planet/{id}
+          method: GET
+          cors: true
+
+resources:
+  Resources:
+    PeopleTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: peopleId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: peopleId
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: DY-Swapi-People-${self:provider.stage}
+    PlanetTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: planetId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: planetId
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: DY-Swapi-Planet-${self:provider.stage}
