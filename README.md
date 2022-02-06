@@ -6,6 +6,7 @@ Para dar inicio a las pruebas descarga el proyecto en tu local
 git clone 
 
 }
+```
 
 Realiza una carga de variables de entorno
 
@@ -13,6 +14,7 @@ Realiza una carga de variables de entorno
 bash local.sh
 
 }
+```
 
 Instala las dependencias del proyecto
 
@@ -20,6 +22,7 @@ Instala las dependencias del proyecto
 npm install
 
 }
+```
 
 Para validar el funcionamiento correcto ejecuta las pruebas unitarias
 
@@ -27,3 +30,12 @@ Para validar el funcionamiento correcto ejecuta las pruebas unitarias
 npm test
 
 }
+```
+
+# Definition
+
+Resources used:
+
+1. Planet:
+    
+2. People
