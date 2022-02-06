@@ -1,10 +1,3 @@
-const {mockClient} = require("aws-sdk-client-mock")
-
-//const {DynamoDBClient} = require('aws-sdk/client-dynamodb');
-const { DynamoDBDocumentClient, GetCommand, PutCommand } = require('@aws-sdk/lib-dynamodb');
-
-//import { getUserNames } from "./getUserNames";
-
 const myLambdaDetail = require("../modules/people/detail")
 const myLambdaCreate = require("../modules/people/create")
 

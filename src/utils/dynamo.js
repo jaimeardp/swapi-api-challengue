@@ -3,17 +3,17 @@ const {DocumentClient} = require("aws-sdk/clients/dynamodb")
 
 const AWS = require('aws-sdk');
 //import AWS from 'aws-sdk';
-
+/*
 try{
   var credentials = new AWS.SharedIniFileCredentials({profile: 'tt'});
   AWS.config.credentials = credentials;
   console.log("Running enviroment local")
-}catch {
+}catch (e) {
   console.log("Running enviroment cloud")
-}finally{
-  AWS.config.update({ region: process.env.REGION });
-  const documentClient = new AWS.DynamoDB.DocumentClient();
-}
+}*/
+
+AWS.config.update({ region: process.env.REGION });
+const documentClient = new AWS.DynamoDB.DocumentClient();
 
 
  const getItems = async (table) => {

@@ -1,5 +1,5 @@
 
-service: DEVOPS-Swapi-API
+service: DEVOPS-Swapi-API-v1
 
 provider:
   name: aws
@@ -12,7 +12,42 @@ provider:
     DYNAMODB_TABLE_PEOPLE: DY-Swapi-People-${self:provider.stage}
     DYNAMODB_TABLE_PLANET: DY-Swapi-Planet-${self:provider.stage}
     SWAPI_ENDPOINT: swapi.py4e.com
+    TOKENNAME_ACCESS_API: "dev/Appdemo/authorizer"
+
+
+resources:
+  Resources:
+    PeopleTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: peopleId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: peopleId
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: DY-Swapi-People-${self:provider.stage}
+    PlanetTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: planetId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: planetId
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: DY-Swapi-Planet-${self:provider.stage}
+
 functions:
+  CustomLayerAuthorizer:
+    name: Lambda-Swapi-API-dev-authorizer
+    handler: src/modules/authorizer/auth.handler
   people-create:
     name: Lambda-Swapi-API-dev-people-create
     handler: src/modules/people/create.handler
@@ -73,32 +108,3 @@ functions:
           path: /planet/{id}
           method: GET
           cors: true
-
-resources:
-  Resources:
-    PeopleTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        AttributeDefinitions:
-          - AttributeName: peopleId
-            AttributeType: S
-        KeySchema:
-          - AttributeName: peopleId
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
-        TableName: DY-Swapi-People-${self:provider.stage}
-    PlanetTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        AttributeDefinitions:
-          - AttributeName: planetId
-            AttributeType: S
-        KeySchema:
-          - AttributeName: planetId
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
-        TableName: DY-Swapi-Planet-${self:provider.stage}

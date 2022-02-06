@@ -1,5 +1,7 @@
 //import {TABLES} from "../../constant/tables.js";
 const {TABLES} = require("../../constant/tables.js")
+const {ENDPOINTS} = require("../../constant/endpoints.js")
+
 //import dynamo from "../../utils/dynamo.js";
 const dynamo = require("../../utils/dynamo.js")
 const {getEntities} = require("../../utils/swapi.js")

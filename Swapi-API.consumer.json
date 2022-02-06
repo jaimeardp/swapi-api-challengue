@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "2b3c041f-79e6-412e-8b38-130f82674d7c",
+		"name": "Swapi API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add People",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "allow",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"name\": \"Clara\",\r\n        \"birth_year\": \"2000\",\r\n        \"eye_color\": \"negro\",\r\n        \"gender\": \"F\",\r\n        \"height\": \"168\",\r\n        \"mass\": \"55\",\r\n        \"skin_color\": \"blanco\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://g1mojovfg0.execute-api.us-east-1.amazonaws.com/dev/people/",
+					"protocol": "https",
+					"host": [
+						"g1mojovfg0",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"people",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List People",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "allow",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://g1mojovfg0.execute-api.us-east-1.amazonaws.com/dev/people/",
+					"protocol": "https",
+					"host": [
+						"g1mojovfg0",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"people",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Planet",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "allow",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"name\": \"urano\",\r\n        \"diameter\": \"100000000\",\r\n        \"orbital_period\": \"2342423423\",\r\n        \"population\": \"1243243242\",\r\n        \"climate\": \"calor extremo\",\r\n        \"terrain\": \"volcan\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://g1mojovfg0.execute-api.us-east-1.amazonaws.com/dev/planet/",
+					"protocol": "https",
+					"host": [
+						"g1mojovfg0",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"planet",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Planet",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "allow",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://g1mojovfg0.execute-api.us-east-1.amazonaws.com/dev/planet/",
+					"protocol": "https",
+					"host": [
+						"g1mojovfg0",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"planet",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Swapi Planet by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.py4e.com/api/planets/9000",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"py4e",
+						"com"
+					],
+					"path": [
+						"api",
+						"planets",
+						"9000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detail People",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "allow",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://g1mojovfg0.execute-api.us-east-1.amazonaws.com/dev/people/1",
+					"protocol": "https",
+					"host": [
+						"g1mojovfg0",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"people",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detail Planet",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "allow",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://g1mojovfg0.execute-api.us-east-1.amazonaws.com/dev/planet/1",
+					"protocol": "https",
+					"host": [
+						"g1mojovfg0",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"planet",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
